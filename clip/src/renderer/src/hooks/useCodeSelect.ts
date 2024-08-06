@@ -1,19 +1,21 @@
-import { DataType } from '@renderer/data'
-import useCode from '@renderer/hooks/useCode'
+import { SelectType, useStoreSelect } from '@renderer/store/useStoreSelect'
 import { useCallback, useEffect, useState } from 'react'
 
-interface codeSelect extends Partial<DataType> {
-  data: DataType[]
+interface codeSelect extends Partial<SelectType> {
+  data: SelectType[]
 }
 
 export default (): codeSelect => {
-  const { data } = useCode()
+  const data = useStoreSelect((z) => z.data)
+  const setData = useStoreSelect((z) => z.setData)
+
   const [id, setId] = useState(0)
   const keyEventFn = (e: KeyboardEvent): void => {
     if (data.length === 0) {
       setId(0)
       return
     }
+    console.log(e.code)
     const eventTypeFn = {
       ArrowUp: (): void => {
         setId((id) => {
@@ -27,10 +29,11 @@ export default (): codeSelect => {
           return data[index + 1]?.id || data[0].id
         })
       },
-      Enter: (): void => {
+      Enter: async (): Promise<void> => {
         const content = data.find((d) => d.id === id)?.content
         if (content) {
-          navigator.clipboard.writeText(content)
+          await navigator.clipboard.writeText(content)
+          setData([])
           window.api.hideWin()
         }
       }

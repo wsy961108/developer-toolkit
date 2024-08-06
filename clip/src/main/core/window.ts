@@ -1,16 +1,13 @@
-import { shell, BrowserWindow, screen } from 'electron'
+import { shell, BrowserWindow } from 'electron'
 import { join } from 'path'
 import { is } from '@electron-toolkit/utils'
 import icon from '../../../resources/icon.png?asset'
 
 export default function createWindow(): BrowserWindow {
-  const { width } = screen.getPrimaryDisplay().workAreaSize
-  // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 600,
     height: 350,
-    x: width - 600,
-    y: 0,
+    center: true,
     show: false,
     alwaysOnTop: true,
     autoHideMenuBar: true,
@@ -26,6 +23,7 @@ export default function createWindow(): BrowserWindow {
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })
+  mainWindow.webContents.openDevTools()
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url)

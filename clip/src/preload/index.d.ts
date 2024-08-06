@@ -5,6 +5,7 @@ declare global {
     electron: ElectronAPI
     api: {
       hideWin: () => void
+      shortCut: (type: string, hostKey: string) => void
     }
   }
 }

@@ -1,7 +1,6 @@
 import { app, BrowserWindow } from 'electron'
 import createWindow from './window'
-import { registerIpc } from './ipc'
-import { registerShortCut } from './shortcut'
+import { registerIpc, registerShortCut } from './ipc'
 
 app.whenReady().then(() => {
   const win = createWindow()

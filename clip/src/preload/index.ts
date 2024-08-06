@@ -3,9 +3,8 @@ import { electronAPI } from '@electron-toolkit/preload'
 
 // Custom APIs for renderer
 const api = {
-  hideWin: () => {
-    ipcRenderer.send('hideWin')
-  }
+  hideWin: (): void => ipcRenderer.send('hideWin'),
+  shortCut: (type: string, hostKey: string): void => ipcRenderer.send('shortCut', type, hostKey)
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

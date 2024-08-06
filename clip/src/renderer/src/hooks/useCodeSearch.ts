@@ -1,11 +1,19 @@
-import useCode from '@renderer/hooks/useCode'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent } from 'react'
 import { data as codes } from '@renderer/data'
+import { useStoreSelect } from '@renderer/store/useStoreSelect'
+import { StoreSearch, useStoreSearch } from '@renderer/store/useStoreSearch'
 
-export default () => {
-  const { setData } = useCode()
-  const [search, setSearch] = useState('')
-  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+type ExtractEventType<T, M extends keyof T> = T[M] extends (event: infer E) => void ? E : never;
+
+interface codeSearch extends Partial<StoreSearch> {
+  handleSearch: (e: ChangeEvent<HTMLInputElement>) => void
+}
+export default (): codeSearch => {
+  const setData = useStoreSelect((z) => z.setData)
+  const search = useStoreSearch((z) => z.search)
+  const setSearch = useStoreSearch((z) => z.setSearch)
+
+  const handleSearch = (e: ExtractEventType<codeSearch,'handleSearch'>): void => {
     setSearch(e.target.value)
     if (!e.target.value) {
       setData([])
@@ -18,8 +26,8 @@ export default () => {
         .join('|'),
       'i'
     )
-    console.log(searchReg)
     setData(codes.filter((code) => searchReg.test(code.content)))
   }
+
   return { search, handleSearch }
 }
