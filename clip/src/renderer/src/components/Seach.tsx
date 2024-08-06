@@ -5,6 +5,7 @@ import { data as codes } from '@renderer/data'
 export default function Seach(): JSX.Element {
   const { setData } = useCode()
   const [search, setSearch] = useState('')
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value)
     if (!e.target.value) {
