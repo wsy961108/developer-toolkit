@@ -1,32 +1,49 @@
 import { DataType } from '@renderer/data'
 import useCode from '@renderer/hooks/useCode'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
-interface codeSelect {
+interface codeSelect extends Partial<DataType> {
   data: DataType[]
-  current: number
 }
+
 export default (): codeSelect => {
   const { data } = useCode()
-  const [current, setCurrent] = useState(0)
-
+  const [id, setId] = useState(0)
   const keyEventFn = (e: KeyboardEvent): void => {
     if (data.length === 0) {
-      setCurrent(0)
+      setId(0)
       return
     }
-    const listTypeFn = {
-      ArrowUp: (): void => setCurrent((pre) => (pre === 0 ? data.length - 1 : pre - 1)),
-      ArrowDown: (): void => setCurrent((pre) => (pre === data.length - 1 ? 0 : pre + 1)),
-      Enter: (): Promise<void> => navigator.clipboard.writeText(data[current].content)
+    const eventTypeFn = {
+      ArrowUp: (): void => {
+        setId((id) => {
+          const index = data.findIndex((d) => d.id === id)
+          return data[index - 1]?.id || data[data.length - 1].id
+        })
+      },
+      ArrowDown: (): void => {
+        setId((id) => {
+          const index = data.findIndex((d) => d.id === id)
+          return data[index + 1]?.id || data[0].id
+        })
+      },
+      Enter: (): void => {
+        const content = data.find((d) => d.id === id)?.content
+        if (content) {
+          navigator.clipboard.writeText(content)
+          window.api.hideWin()
+        }
+      }
     }
-    listTypeFn[e.code]?.()
+    eventTypeFn[e.code]?.()
   }
 
-  useEffect(() => {
-    window.addEventListener('keydown', keyEventFn)
-    return (): void => window.removeEventListener('keydown', keyEventFn)
-  }, [data, current])
+  const handleKeyEvent = useCallback(keyEventFn, [data, id])
 
-  return { data, current }
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyEvent)
+    return (): void => window.removeEventListener('keydown', handleKeyEvent)
+  }, [handleKeyEvent])
+
+  return { data, id }
 }
