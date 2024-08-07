@@ -5,7 +5,9 @@ declare global {
     electron: ElectronAPI
     api: {
       hideWin: () => void
-      shortCut: (type: string, hostKey: string) => void
+      shortCut: (hostKey: string) => Promise<boolean>
+      ignoreMouseEvent: (ignore: boolean, option?: { forward: boolean }) => void
+      openConfigWin: () => void
     }
   }
 }

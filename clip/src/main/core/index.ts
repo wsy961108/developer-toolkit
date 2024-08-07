@@ -1,11 +1,18 @@
 import { app, BrowserWindow } from 'electron'
 import createWindow from './window'
-import { registerIpc, registerShortCut } from './ipc'
+import {
+  registerIgnoreMouseEvents,
+  registerIpc,
+  registerOpenConfigWindow,
+  registerShortCut
+} from './ipc'
 
 app.whenReady().then(() => {
   const win = createWindow()
   registerIpc(win)
   registerShortCut(win)
+  registerIgnoreMouseEvents(win)
+  registerOpenConfigWindow()
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })

@@ -1,15 +1,14 @@
 import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 
-// Custom APIs for renderer
 const api = {
   hideWin: (): void => ipcRenderer.send('hideWin'),
-  shortCut: (type: string, hostKey: string): void => ipcRenderer.send('shortCut', type, hostKey)
+  shortCut: (hostKey: string): Promise<boolean> => ipcRenderer.invoke('shortCut', hostKey),
+  ignoreMouseEvent: (ignore: boolean, options: { forward: boolean }): void =>
+    ipcRenderer.send('ignoreMouseEvent', ignore, options),
+  openConfigWin: (): void => ipcRenderer.send('openConfigWindow')
 }
 
-// Use `contextBridge` APIs to expose Electron APIs to
-// renderer only if context isolation is enabled, otherwise
-// just add to the DOM global.
 if (process.contextIsolated) {
   try {
     contextBridge.exposeInMainWorld('electron', electronAPI)

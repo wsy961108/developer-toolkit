@@ -1,10 +1,10 @@
 import Seach from '@renderer/components/Seach'
 import Result from '@renderer/components/Result'
 import useHostKey from '@renderer/hooks/useHostKey'
-import Error from './components/Error'
+import Error from '@renderer/components/Error'
 import { useEffect, useRef } from 'react'
 
-function App(): JSX.Element {
+function Home(): JSX.Element {
   const { shortCut } = useHostKey()
   shortCut('CommandOrControl+L')
   const mainRef = useRef<HTMLDivElement | null>(null)
@@ -23,4 +23,4 @@ function App(): JSX.Element {
   )
 }
 
-export default App
+export default Home
