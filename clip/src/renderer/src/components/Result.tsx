@@ -2,13 +2,13 @@ import useCodeSelect from '@renderer/hooks/useCodeSelect'
 
 export default function Result(): JSX.Element {
   const { data, id } = useCodeSelect()
+  if (!data.length) return <></>
   return (
-    <main className="bg-slate-50 relative -top-[6px] rounded-br-lg rounded-bl-lg p-3">
-      <section className="text-center text-xs">代码碎片工具</section>
+    <main className="bg-slate-50 rounded-br-lg rounded-bl-lg overflow relative -top-[6px] p-3">
       {data.map((code) => (
         <div
           key={code.id}
-          className={`text-slate-700 truncate ${id === code.id ? 'bg-slate-600' : ''}`}
+          className={`px-2 py-1 rounded-lg truncate ${id === code.id ? 'bg-blue-700 text-slate-50' : 'text-slate-600'}`}
         >
           {code.content}
         </div>

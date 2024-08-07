@@ -13,6 +13,7 @@ export default (): codeSelect => {
   const id = useStoreId((z) => z.id)
   const setId = useStoreId((z) => z.setId)
   const setSearch = useStoreSearch((z) => z.setSearch)
+  const search = useStoreSearch((z) => z.search)
 
   const handleKeyEvent = useCallback(
     (e: KeyboardEvent): void => {
@@ -29,8 +30,8 @@ export default (): codeSelect => {
         Enter: async (): Promise<void> => {
           const content = data.find((d) => d.id === id)?.content
           if (content) await navigator.clipboard.writeText(content)
-          setData([])
-          setSearch('')
+          data.length && setData([])
+          search && setSearch('')
           window.api.hideWin()
         }
       }
@@ -44,7 +45,10 @@ export default (): codeSelect => {
     return (): void => window.removeEventListener('keydown', handleKeyEvent)
   }, [handleKeyEvent])
 
-  useEffect(() => setId(data[0]?.id ?? 0), [data])
+  useEffect(() => {
+    console.log('first', id)
+    setId(data[0]?.id || 0)
+  }, [data])
 
   return { data, id }
 }

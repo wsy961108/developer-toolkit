@@ -22,10 +22,13 @@ export default function createWindow(): BrowserWindow {
 
   mainWindow.webContents.openDevTools()
 
+  mainWindow.on('move', () => {
+    console.log('123123')
+  })
+
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })
-
   mainWindow.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url)
     return { action: 'deny' }

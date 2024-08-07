@@ -20,9 +20,11 @@ export const registerIgnoreMouseEvents = (win: BrowserWindow): void => {
     }
   )
 }
+
 export const registerOpenConfigWindow = (): void => {
   ipcMain.on('openConfigWindow', () => openConfigWindow())
 }
+
 export const registerShortCut = (win: BrowserWindow): void => {
   ipcMain.handle('shortCut', (_event: IpcMainInvokeEvent, hostKey) => {
     return globalShortcut.register(hostKey, () => {

@@ -1,6 +1,6 @@
 {
   "name": "@developer-toolkit/zipper",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0",
   "type": "module",
   "description": "Command Line Interface for File Compression",
   "main": "bin/zipper.js",
