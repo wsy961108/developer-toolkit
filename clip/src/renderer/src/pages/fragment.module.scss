@@ -1,0 +1,14 @@
+.config {
+  @apply grid gap-2 h-full;
+  grid-template: "main content" 1fr/120px 1fr;
+
+  .main {
+    grid-area: main;
+    @apply overflow-x-hidden rounded-lg bg-slate-50 p-2 text-sm;
+  }
+
+  .content {
+    grid-area: content;
+    @apply overflow-y-auto;
+  }
+}

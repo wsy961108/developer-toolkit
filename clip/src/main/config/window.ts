@@ -10,6 +10,7 @@ export default function createWindow(): BrowserWindow {
     height: 350,
     center: true,
     show: false,
+    resizable: true,
     alwaysOnTop: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {

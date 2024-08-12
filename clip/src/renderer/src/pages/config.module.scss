@@ -1,0 +1,14 @@
+.config {
+  @apply w-screen h-screen bg-gray-200 grid;
+  grid-template: "menu content" 1fr/auto 1fr;
+
+  .menu {
+    grid-area: menu;
+    @apply overflow-y-auto;
+  }
+
+  .content {
+    grid-area: content;
+    @apply overflow-y-auto pb-3 ml-[10px];
+  }
+}

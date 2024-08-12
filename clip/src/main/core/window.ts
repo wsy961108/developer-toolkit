@@ -20,8 +20,6 @@ export default function createWindow(): BrowserWindow {
     }
   })
 
-  mainWindow.webContents.openDevTools()
-
   mainWindow.on('move', () => {
     console.log('123123')
   })

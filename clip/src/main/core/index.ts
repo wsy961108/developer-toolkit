@@ -6,7 +6,7 @@ import {
   registerOpenConfigWindow,
   registerShortCut
 } from './ipc'
-import '../db'
+// import '../db'
 
 app.whenReady().then(() => {
   const win = createWindow()
