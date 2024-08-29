@@ -9,6 +9,6 @@
 
   .content {
     grid-area: content;
-    @apply overflow-y-auto pb-3 ml-[10px];
+    @apply overflow-y-auto pb-3 mx-[10px];
   }
 }

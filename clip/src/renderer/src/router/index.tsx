@@ -5,6 +5,10 @@ import FragmentTitle from '@renderer/pages/FragmentTitle'
 import Home from '@renderer/pages/Home'
 import Options from '@renderer/pages/Options'
 import { createHashRouter } from 'react-router-dom'
+import fragmentLoader from './loader/fragmentLoader'
+import fragmentTitleLoader from './loader/fragmentTitleLoader'
+import fragmenContentLoader from './loader/fragmenContentLoader'
+import fragmenContentAction from './action/fragmenContentAction'
 
 const router = createHashRouter([
   { path: '/', element: <Home /> },
@@ -13,13 +17,22 @@ const router = createHashRouter([
     element: <Config />,
     children: [
       {
-        path: '',
+        path: 'fragment',
         element: <Fragment />,
+        loader: fragmentLoader,
         children: [
           {
-            path: 'FragmentTitle',
+            path: 'fragmentTitle/:cid',
             element: <FragmentTitle />,
-            children: [{ path: 'FragmentContent', element: <FragmentContent /> }]
+            loader: fragmentTitleLoader,
+            children: [
+              {
+                path: 'FragmentContent/:id',
+                loader: fragmenContentLoader,
+                action: fragmenContentAction,
+                element: <FragmentContent />
+              }
+            ]
           }
         ]
       },

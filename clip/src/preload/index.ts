@@ -8,7 +8,8 @@ const api = {
   ignoreMouseEvent: (ignore: boolean, options: { forward: boolean }): void =>
     ipcRenderer.send('ignoreMouseEvent', ignore, options),
   openConfigWin: (): void => ipcRenderer.send('openConfigWindow'),
-  spl: <T>(sql: string, type: SqlType): Promise<T> => ipcRenderer.invoke(sql, type)
+  sql: <T>(sql: string, type: SqlType, params): Promise<T> =>
+    ipcRenderer.invoke('sql', sql, type, params)
 }
 
 if (process.contextIsolated) {

@@ -46,7 +46,6 @@ export default (): codeSelect => {
   }, [handleKeyEvent])
 
   useEffect(() => {
-    console.log('first', id)
     setId(data[0]?.id || 0)
   }, [data])
 

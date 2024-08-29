@@ -9,3 +9,4 @@ const db: BetterSqlite3.Database = new Database(file, {})
 db.pragma('journal_mode = WAL')
 
 export default db
+ 

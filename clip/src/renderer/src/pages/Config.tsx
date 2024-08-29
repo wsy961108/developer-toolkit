@@ -3,7 +3,7 @@ import styles from './config.module.scss'
 
 export default function Config(): JSX.Element {
   const data = [
-    { label: '片段', icon: '片段', route: '' },
+    { label: '片段', icon: '片段', route: 'fragment' },
     { label: '设置', icon: '片段', route: 'option' }
   ]
 

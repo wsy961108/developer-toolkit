@@ -10,7 +10,7 @@ declare global {
       shortCut: (hostKey: string) => Promise<boolean>
       ignoreMouseEvent: (ignore: boolean, option?: { forward: boolean }) => void
       openConfigWin: () => void
-      sql: <T>(sql: string, type: SqlType) => Promise<T>
+      sql: <T>(sql: string, type: SqlType, params) => Promise<T>
     }
   }
 }
