@@ -9,9 +9,9 @@ export default function createWindow(): BrowserWindow {
     width: 600,
     height: 350,
     center: true,
-    show: false,
+    show: true,
     resizable: true,
-    alwaysOnTop: true,
+    alwaysOnTop: false,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),

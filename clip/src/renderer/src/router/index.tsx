@@ -9,6 +9,7 @@ import fragmentLoader from './loader/fragmentLoader'
 import fragmentTitleLoader from './loader/fragmentTitleLoader'
 import fragmenContentLoader from './loader/fragmenContentLoader'
 import fragmenContentAction from './action/fragmenContentAction'
+import fragmenContentTitle from './action/fragmenContentTitle'
 
 const router = createHashRouter([
   { path: '/', element: <Home /> },
@@ -25,6 +26,7 @@ const router = createHashRouter([
             path: 'fragmentTitle/:cid',
             element: <FragmentTitle />,
             loader: fragmentTitleLoader,
+            action: fragmenContentTitle,
             children: [
               {
                 path: 'FragmentContent/:id',
