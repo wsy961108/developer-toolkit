@@ -2,14 +2,14 @@ import Config from '@renderer/pages/Config'
 import Fragment from '@renderer/pages/Fragment'
 import FragmentContent from '@renderer/pages/FragmentContent'
 import FragmentTitle from '@renderer/pages/FragmentTitle'
-import Home from '@renderer/pages/Home'
+import Home from '@renderer/layouts/Home'
 import Options from '@renderer/pages/Options'
 import { createHashRouter } from 'react-router-dom'
 import fragmentLoader from './loader/fragmentLoader'
 import fragmentTitleLoader from './loader/fragmentTitleLoader'
 import fragmenContentLoader from './loader/fragmenContentLoader'
 import fragmenContentAction from './action/fragmenContentAction'
-import fragmenContentTitle from './action/fragmenContentTitle'
+import fragmenContentTitleAction from './action/fragmenContentTitleAction'
 
 const router = createHashRouter([
   { path: '/', element: <Home /> },
@@ -26,7 +26,7 @@ const router = createHashRouter([
             path: 'fragmentTitle/:cid',
             element: <FragmentTitle />,
             loader: fragmentTitleLoader,
-            action: fragmenContentTitle,
+            action: fragmenContentTitleAction,
             children: [
               {
                 path: 'FragmentContent/:id',

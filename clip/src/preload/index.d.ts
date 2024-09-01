@@ -6,11 +6,16 @@ declare global {
   interface Window {
     electron: ElectronAPI
     api: {
-      hideWin: () => void
-      shortCut: (hostKey: string) => Promise<boolean>
-      ignoreMouseEvent: (ignore: boolean, option?: { forward: boolean }) => void
-      openConfigWin: () => void
-      sql: <T>(sql: string, type: SqlType, params) => Promise<T>
+      hotKey: (hotKey: string) => Promise<boolean>
+      setIgnoreMouseEvents: (ignore: boolean, options?: { forward: boolean }) => void
+      openConfigWindow: () => void
+      sql: <T>(sql: string, type: SqlActionType, params?: Record<string, any>) => Promise<T>
+      openWindow: (name: WindowNameType) => void
+      closeWindow: (name: WindowNameType) => void
+      selectDatabaseDirectory: () => Promise<string>
+      setDatabaseDirectory: (path: string) => void
+      initTable: () => void
+      moveWindow: (name: WindowNameType, x: number, y: number) => void
     }
   }
 }

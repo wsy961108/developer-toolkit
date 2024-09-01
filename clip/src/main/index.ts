@@ -1,6 +1,7 @@
 import { app, ipcMain } from 'electron'
 import { electronApp, optimizer } from '@electron-toolkit/utils'
-import './core'
+import './window'
+import './ipc'
 
 app.whenReady().then(() => {
   electronApp.setAppUserModelId('com.electron')

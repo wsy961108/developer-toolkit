@@ -1,15 +1,32 @@
 import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
-import { SqlType } from '../main/db/ipc'
 
 const api = {
-  hideWin: (): void => ipcRenderer.send('hideWin'),
-  shortCut: (hostKey: string): Promise<boolean> => ipcRenderer.invoke('shortCut', hostKey),
-  ignoreMouseEvent: (ignore: boolean, options: { forward: boolean }): void =>
-    ipcRenderer.send('ignoreMouseEvent', ignore, options),
-  openConfigWin: (): void => ipcRenderer.send('openConfigWindow'),
-  sql: <T>(sql: string, type: SqlType, params): Promise<T> =>
-    ipcRenderer.invoke('sql', sql, type, params)
+  hotKey: (hotKey: string) => ipcRenderer.invoke('hotKey', hotKey),
+  setIgnoreMouseEvents: (ignore: boolean, options?: { forward: boolean }) => {
+    ipcRenderer.send('setIgnoreMouseEvents', ignore, options)
+  },
+  openConfigWindow: () => ipcRenderer.send('openConfigWindow'),
+  sql: (sql: string, type: SqlActionType, params = {}) =>
+    ipcRenderer.invoke('sql', sql, type, params),
+  openWindow: (name: WindowNameType) => {
+    ipcRenderer.send('openWindow', name)
+  },
+  closeWindow: (name: WindowNameType) => {
+    ipcRenderer.send('closeWindow', name)
+  },
+  selectDatabaseDirectory: () => {
+    return ipcRenderer.invoke('selectDatabaseDirectory')
+  },
+  setDatabaseDirectory: (path: string) => {
+    ipcRenderer.send('setDatabaseDirectory', path)
+  },
+  initTable: () => {
+    ipcRenderer.send('initTable')
+  },
+  moveWindow: (name: WindowNameType, x: number, y: number) => {
+    ipcRenderer.invoke('moveWindow', name, x, y)
+  }
 }
 
 if (process.contextIsolated) {

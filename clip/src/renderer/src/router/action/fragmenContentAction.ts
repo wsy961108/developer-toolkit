@@ -1,7 +1,6 @@
 export default async ({ request, params }) => {
   const data = await request.formData()
   const content = data.get('content')
-  console.log(content)
   const sql = {
     content,
     id: params.id
