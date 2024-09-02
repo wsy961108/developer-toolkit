@@ -1,0 +1,12 @@
+.search {
+  @apply w-full p-2.5 box-border;
+  .searchLayout {
+    @apply flex items-center justify-between h-10;
+    .searchInput {
+      @apply px-2 flex-1 rounded-md outline-none bg-slate-400 h-full;
+    }
+    .searchSetting {
+      @apply cursor-pointer ml-2;
+    }
+  }
+}

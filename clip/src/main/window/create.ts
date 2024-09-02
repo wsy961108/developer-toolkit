@@ -15,11 +15,8 @@ export default function create(options: OptionsType): BrowserWindow {
       {
         width: 500,
         height: 350,
-        center: true,
         show: false,
-        frame: false,
-        transparent: false,
-        alwaysOnTop: false,
+        center: true,
         autoHideMenuBar: true,
         ...(process.platform === 'linux' ? { icon } : {}),
         webPreferences: {

@@ -4,6 +4,7 @@ interface Props {
   handleTitle?: (e: string) => void
   handleDelete?: (e: string) => void
 }
+
 export default function EditableText(props: Props): JSX.Element {
   const [isUpdataState, setIsUpdataState] = useState<boolean>(false)
   const [title, setTitle] = useState<string>(props.title)
@@ -29,7 +30,7 @@ export default function EditableText(props: Props): JSX.Element {
       <div className="w-full h-6 flex">
         <div
           className="w-full h-full truncate bg-transparent"
-          onDoubleClick={() => console.log('first', setIsUpdataState(true))}
+          onDoubleClick={() => setIsUpdataState(true)}
         >
           {title}
         </div>

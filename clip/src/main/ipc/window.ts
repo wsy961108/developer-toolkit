@@ -12,7 +12,6 @@ ipcMain.on('closeWindow', (_event: IpcMainEvent, name: WindowNameType) => {
 ipcMain.on(
   'setIgnoreMouseEvents',
   (event: IpcMainEvent, ignore: boolean, options?: { forward: boolean }) => {
-    console.log('失去焦点', ignore)
     getWindowByEvent(event).setIgnoreMouseEvents(ignore, options)
   }
 )

@@ -1,0 +1,13 @@
+.result {
+  height: calc(100vh - 60px);
+  @apply w-full p-2.5 box-border overflow-y-auto;
+
+  .item {
+    @apply px-2 rounded-lg truncate text-slate-600 h-10 leading-10;
+  }
+
+  .isActive {
+    @extend .item;
+    @apply bg-blue-700 text-slate-50;
+  }
+}

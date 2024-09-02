@@ -1,10 +1,10 @@
 import { Config } from '@icon-park/react'
 import useCodeSearch from '@renderer/hooks/useCodeSearch'
 import useMoveWindow from '@renderer/hooks/useMoveWindow'
-import { Input } from 'antd'
 import { MutableRefObject, useEffect, useRef } from 'react'
+import styles from './search.module.scss'
 
-export default function Seach(): JSX.Element {
+export default function Search(): JSX.Element {
   const { handleSearch, search } = useCodeSearch()
   const { handleMove } = useMoveWindow()
   const moveRef = useRef<HTMLDivElement>(null)
@@ -14,15 +14,15 @@ export default function Seach(): JSX.Element {
   }, [])
 
   return (
-    <div ref={moveRef} className="bg-slate-50 rounded-lg p-3">
-      <section className="bg-slate-100 p-3 rounded-lg flex gap-1 items-center">
-        <Input value={search} onChange={handleSearch} autoFocus />
+    <div ref={moveRef} className={styles.search}>
+      <section className={styles.searchLayout}>
+        <input value={search} onChange={handleSearch} autoFocus className={styles.searchInput} />
         <Config
           theme="outline"
           size="20"
           fill="#333"
-          onClick={() => window.api.openConfigWin()}
-          className="cursor-pointer"
+          className={styles.searchSetting}
+          //   onClick={() => window.api.openConfigWin()}
         />
       </section>
     </div>

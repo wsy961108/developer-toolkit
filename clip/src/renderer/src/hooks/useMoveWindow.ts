@@ -1,5 +1,8 @@
 import { MutableRefObject } from 'react'
 
+/**
+ * @description 移动窗口
+ */
 export default () => {
   let isKeyDownState = false
   let x = 0
@@ -7,9 +10,11 @@ export default () => {
 
   const handleMove = <T extends HTMLElement>(el: MutableRefObject<T>) => {
     el.current.addEventListener('mousedown', (event) => {
-      isKeyDownState = true
-      x = event.x
-      y = event.y
+      if (event.target === el.current) {
+        isKeyDownState = true
+        x = event.x
+        y = event.y
+      }
     })
 
     document.addEventListener('mousemove', (event) => {

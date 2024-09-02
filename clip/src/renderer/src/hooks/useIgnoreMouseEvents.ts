@@ -1,18 +1,18 @@
 import { MutableRefObject } from 'react'
-
+/**
+ * @description 设置是否忽略鼠标事件
+ */
 export default () => {
-  const setIgnoreMouseEvents = <T extends HTMLElement>(el: MutableRefObject<T>) => {
-    el.current?.addEventListener('mouseover', () => {
-      console.log('el.current')
+  const setIgnoreMouseEvents = <T extends HTMLElement>(
+    openMouseEventEl: MutableRefObject<T>,
+    closeMouseEventEl: MutableRefObject<T>
+  ) => {
+    openMouseEventEl.current?.addEventListener('mouseover', () => {
       window.api.setIgnoreMouseEvents(false)
     })
 
-    document.body?.addEventListener('mouseout', (e: MouseEvent) => {
-      console.log('document.body', e.target)
-      if (e.target === document.body) {
-        console.log(`进入进入进入`)
-        window.api.setIgnoreMouseEvents(true, { forward: true })
-      }
+    closeMouseEventEl.current?.addEventListener('mouseenter', () => {
+      window.api.setIgnoreMouseEvents(true, { forward: true })
     })
   }
 
