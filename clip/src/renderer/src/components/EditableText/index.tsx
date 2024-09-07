@@ -34,9 +34,9 @@ export default function EditableText(props: Props): JSX.Element {
         >
           {title}
         </div>
-        <div className="cursor-pointer" onClick={() => handleDelete()}>
+        {/* <div className="cursor-pointer" onClick={() => handleDelete()}>
           删除
-        </div>
+        </div> */}
       </div>
     )
   }

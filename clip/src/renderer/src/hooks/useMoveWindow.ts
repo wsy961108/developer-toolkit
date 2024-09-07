@@ -21,7 +21,7 @@ export default () => {
       if (isKeyDownState) {
         const appX = event.screenX - x
         const appY = event.screenY - y
-        window.api.moveWindow('search', appX, appY)
+        window.api.moveWindow('config', appX, appY)
       }
     })
 

@@ -22,7 +22,7 @@ export default function Search(): JSX.Element {
           size="20"
           fill="#333"
           className={styles.searchSetting}
-          //   onClick={() => window.api.openConfigWin()}
+          onClick={() => window.api.openWindow('config')}
         />
       </section>
     </div>

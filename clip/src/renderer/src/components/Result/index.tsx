@@ -7,11 +7,7 @@ export default function Result(): JSX.Element {
   return (
     <main className={styles.result}>
       {data.map((code) => (
-        <div
-          key={code.id}
-          className={id === code.id ? styles.isActive : styles.item}
-          //   className={`px-2 py-1 rounded-lg truncate ${id === code.id ? 'bg-blue-700 text-slate-50' : 'text-slate-600'}`}
-        >
+        <div key={code.id} className={id === code.id ? styles.isActive : styles.item}>
           {code.content}
         </div>
       ))}

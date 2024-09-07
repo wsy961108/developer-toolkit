@@ -1,5 +1,5 @@
 .search {
-  @apply w-full p-2.5 box-border;
+  @apply w-full p-2.5 box-border select-none;
   .searchLayout {
     @apply flex items-center justify-between h-10;
     .searchInput {

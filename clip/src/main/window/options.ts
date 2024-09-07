@@ -5,11 +5,10 @@ export const config = {
     id: 0,
     options: {
       hash: '',
-      initShow: true,
       frame: false,
-      openDevTools: false,
+      initShow: false,
+      transparent: true,
       alwaysOnTop: true,
-      transparent: false,
       width: 580,
       resizable: false
     }
@@ -17,13 +16,11 @@ export const config = {
   config: {
     id: 0,
     options: {
-      initShow: false,
-      openDevTools: false,
-      width: 505,
+      width: 1000,
       height: 350,
-      frame: true,
-      transparent: false,
-      alwaysOnTop: false,
+      initShow: true,
+      frame: false,
+      openDevTools: true,
       hash: '/#config'
     }
   }

@@ -8,7 +8,6 @@ declare global {
     api: {
       hotKey: (hotKey: string) => Promise<boolean>
       setIgnoreMouseEvents: (ignore: boolean, options?: { forward: boolean }) => void
-      openConfigWindow: () => void
       sql: <T>(sql: string, type: SqlActionType, params?: Record<string, any>) => Promise<T>
       openWindow: (name: WindowNameType) => void
       closeWindow: (name: WindowNameType) => void

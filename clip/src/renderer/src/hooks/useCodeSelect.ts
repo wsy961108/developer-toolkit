@@ -32,7 +32,7 @@ export default (): codeSelect => {
           if (content) await navigator.clipboard.writeText(content)
           data.length && setData([])
           search && setSearch('')
-          window.api.hideWin()
+          window.api.closeWindow('search')
         }
       }
       eventTypeFn[e.code]?.()

@@ -1,5 +1,5 @@
 .result {
-  height: calc(100vh - 60px);
+  max-height: calc(100vh - 60px);
   @apply w-full p-2.5 box-border overflow-y-auto;
 
   .item {

@@ -23,21 +23,5 @@ export const data = [
   {
     id: 5,
     content: 'function createWindow(): void {'
-  },
-  {
-    id: 6,
-    content: 'function createWindow(): void {'
-  },
-  {
-    id: 7,
-    content: 'function createWindow(): void {'
-  },
-  {
-    id: 8,
-    content: 'function createWindow(): void {'
-  },
-  {
-    id: 9,
-    content: 'function createWindow(): void {'
   }
 ] as DataType[]

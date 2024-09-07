@@ -1,4 +1,4 @@
-import Config from '@renderer/pages/Config'
+import Config from '@renderer/layouts/Config'
 import Fragment from '@renderer/pages/Fragment'
 import FragmentContent from '@renderer/pages/FragmentContent'
 import FragmentTitle from '@renderer/pages/FragmentTitle'
