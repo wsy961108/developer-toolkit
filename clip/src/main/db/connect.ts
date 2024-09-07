@@ -9,7 +9,7 @@ const db = (): BetterSqlite3.Database => {
   if (config.databaseDirectory && existsSync(config.databaseDirectory)) {
     dir = config.databaseDirectory
   }
-  const db: BetterSqlite3.Database = new Database(dir + '/hd.db', {})
+  const db: BetterSqlite3.Database = new Database(dir + '/snippets.db', {})
   db.pragma('journal_mode = WAL')
   return db
 }
