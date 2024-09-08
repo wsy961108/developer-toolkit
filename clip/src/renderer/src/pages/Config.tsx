@@ -16,7 +16,7 @@ export default function Config(): JSX.Element {
             className="w-[40px] h-[40px] mx-[10px] text-center text-xs rounded-md bg-slate-50 flex flex-col justify-center items-center hover:bg-slate-600"
           >
             <div>{i.icon}</div>
-            <Link to={i.route}>{i.label}</Link>
+            <NavLink to={i.route}>{i.label}</Link>
           </div>
         ))}
       </div>

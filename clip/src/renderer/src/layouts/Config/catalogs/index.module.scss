@@ -1,0 +1,20 @@
+.container {
+  @apply w-40 bg-gray-200 rounded-lg p-2 flex flex-col;
+
+  .scroll {
+    @apply flex-1;
+
+    .item {
+      @apply flex justify-between items-center h-9 cursor-pointer rounded-lg mb-1 bg-gray-200 hover:bg-gray-100;
+
+      .link {
+        @apply flex-1 p-1.5 truncate;
+      }
+    }
+
+  }
+
+  .add {
+    @apply h-4 flex items-center justify-center bottom-0 left-0 right-0 text-center cursor-pointer border-t-[1px] border-solid border-white;
+  }
+}

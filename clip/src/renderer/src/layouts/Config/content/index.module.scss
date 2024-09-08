@@ -1,0 +1,7 @@
+.container {
+  @apply flex-1 bg-gray-200 rounded-lg p-2;
+
+  textarea {
+    @apply w-full h-full bg-inherit outline-none resize-none;
+  }
+}
