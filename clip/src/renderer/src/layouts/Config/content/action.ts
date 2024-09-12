@@ -1,10 +1,9 @@
 export default async ({ request, params }) => {
   const data = await request.formData()
   const content = data.get('content')
-  const sql = {
+  const p = {
     content,
-    id: params.id
+    id: params.lid
   }
-  const res = window.api.sql(`update contents set content=@content where id=@id`, 'update', sql)
-  return res
+  return window.api.sql(`update contents set content=@content where id=@id`, 'update', p)
 }

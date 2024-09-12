@@ -8,10 +8,13 @@
       @apply flex justify-between items-center h-9 cursor-pointer rounded-lg mb-1 bg-gray-200 hover:bg-gray-100;
 
       .link {
-        @apply flex-1 p-1.5 truncate;
+        @apply flex-1 p-1.5 truncate rounded-lg;
+      }
+      .active {
+        @extend .link;
+        @apply bg-blue-700;
       }
     }
-
   }
 
   .add {

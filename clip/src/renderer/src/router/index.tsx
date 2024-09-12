@@ -1,19 +1,16 @@
-import Config from '@renderer/layouts/Config'
-import Fragment from '@renderer/pages/Fragment'
-import FragmentContent from '@renderer/pages/FragmentContent'
-import FragmentTitle from '@renderer/pages/FragmentTitle'
-import Home from '@renderer/layouts/Home'
 import { createHashRouter } from 'react-router-dom'
-import fragmentLoader from './loader/fragmentLoader'
-import fragmentTitleLoader from './loader/fragmentTitleLoader'
-import fragmenContentLoader from './loader/fragmenContentLoader'
-import fragmenContentAction from './action/fragmenContentAction'
-import fragmenContentTitleAction from './action/fragmenContentTitleAction'
+import Home from '@renderer/layouts/Home'
+import Config from '@renderer/layouts/Config'
 import Catalogs from '@renderer/layouts/Config/catalogs'
 import catalogsLoader from '@renderer/layouts/Config/catalogs/loader'
+import catalogsAction from '@renderer/layouts/Config/catalogs/action'
 import Listings from '@renderer/layouts/Config/listings'
 import listingsLoader from '@renderer/layouts/Config/listings/loader'
+import listingsAction from '@renderer/layouts/Config/listings/action'
 import Content from '@renderer/layouts/Config/content'
+import contentLoader from '@renderer/layouts/Config/content/loader'
+import contentAction from '@renderer/layouts/Config/content/action'
+
 const router = createHashRouter([
   { path: '/', element: <Home /> },
   {
@@ -21,18 +18,22 @@ const router = createHashRouter([
     element: <Config />,
     children: [
       {
-        path: '',
+        path: 'catalogs',
         element: <Catalogs />,
         loader: catalogsLoader,
+        action: catalogsAction,
         children: [
           {
             path: 'listings/:cid',
             element: <Listings />,
             loader: listingsLoader,
+            action: listingsAction,
             children: [
               {
                 path: 'content/:lid',
-                element: <Content />
+                element: <Content />,
+                loader: contentLoader,
+                action: contentAction
               }
             ]
           }
@@ -40,53 +41,6 @@ const router = createHashRouter([
       }
     ]
   }
-  // {
-  //   path: '/config',
-  //   element: <Config />,
-  //   children: [
-  //     {
-  //       index: true,
-  //       element: <Catalogs />
-  //     },
-  //     {
-  //       path: 'catalogs',
-  //       element: <Catalogs />,
-  //       children: [
-  //         {
-  //           path: 'listings/:cid',
-  //           element: <Listings />,
-  //           children: [
-  //             {
-  //               path: 'content/:lid',
-  //               element: <Content />
-  //             }
-  //           ]
-  //         }
-  //       ]
-  //     }
-  //     // {
-  //     //   path: 'fragment',
-  //     //   element: <Fragment />,
-  //     //   loader: fragmentLoader,
-  //     //   children: [
-  //     //     {
-  //     //       path: 'fragmentTitle/:cid',
-  //     //       element: <FragmentTitle />,
-  //     //       loader: fragmentTitleLoader,
-  //     //       action: fragmenContentTitleAction,
-  //     //       children: [
-  //     //         {
-  //     //           path: 'FragmentContent/:id',
-  //     //           loader: fragmenContentLoader,
-  //     //           action: fragmenContentAction,
-  //     //           element: <FragmentContent />
-  //     //         }
-  //     //       ]
-  //     //     }
-  //     //   ]
-  //     // }
-  //   ]
-  // }
 ])
 
 export default router

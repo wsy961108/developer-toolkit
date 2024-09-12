@@ -26,8 +26,7 @@ export function initTable() {
     content text not null
   );
 `)
-
-  initData()
+  // initData()
 }
 function initData() {
   const isInit = findOne('select * from contents')

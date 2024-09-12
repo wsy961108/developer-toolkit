@@ -1,10 +1,15 @@
 import styles from './index.module.scss'
 import EditableText from '@renderer/components/EditableText'
 import ScrollContainer from '@renderer/components/ScrollContainer'
-import { Link, Outlet, useLoaderData } from 'react-router-dom'
+import { NavLink, Outlet, useFetcher, useLoaderData, useSubmit } from 'react-router-dom'
 
 function Catalogs(): JSX.Element {
   const data = useLoaderData() as CategoryType[]
+  const fetcher = useFetcher()
+  const submit = useSubmit()
+  const addCatalog = () => {
+    submit({ action: 'add' }, { method: 'POST' })
+  }
   return (
     <>
       <div className={styles.container}>
@@ -12,14 +17,22 @@ function Catalogs(): JSX.Element {
           <ScrollContainer>
             {data.map((d) => (
               <div key={d.id} className={styles.item}>
-                <Link to={`listings/${d.id}`} className={styles.link}>
-                  <EditableText title={d.name} />
-                </Link>
+                <NavLink
+                  to={`listings/${d.id}`}
+                  className={({ isActive }) => (isActive ? styles.active : styles.link)}
+                >
+                  <EditableText
+                    data={d}
+                    handleTitle={(e) =>
+                      fetcher.submit({ name: e.value, id: d.id }, { method: 'PUT' })
+                    }
+                  />
+                </NavLink>
               </div>
             ))}
           </ScrollContainer>
         </div>
-        <div className={styles.add} onClick={() => alert(2)}>
+        <div className={styles.add} onClick={addCatalog}>
           +
         </div>
       </div>
