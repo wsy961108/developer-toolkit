@@ -8,7 +8,10 @@ export default () => {
   let x = 0
   let y = 0
 
-  const handleMove = <T extends HTMLElement>(el: MutableRefObject<T>) => {
+  const handleMove = <T extends HTMLElement>(
+    el: MutableRefObject<T>,
+    windowName: WindowNameType
+  ) => {
     el.current.addEventListener('mousedown', (event) => {
       if (event.target === el.current) {
         isKeyDownState = true
@@ -21,7 +24,7 @@ export default () => {
       if (isKeyDownState) {
         const appX = event.screenX - x
         const appY = event.screenY - y
-        window.api.moveWindow('config', appX, appY)
+        window.api.moveWindow(windowName, appX, appY)
       }
     })
 

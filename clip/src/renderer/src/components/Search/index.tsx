@@ -10,7 +10,7 @@ export default function Search(): JSX.Element {
   const moveRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    handleMove(moveRef as MutableRefObject<HTMLDivElement>)
+    handleMove(moveRef as MutableRefObject<HTMLDivElement>, 'search')
   }, [])
 
   return (

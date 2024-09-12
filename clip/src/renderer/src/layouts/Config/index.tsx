@@ -22,7 +22,7 @@ function Config(): JSX.Element {
   const { handleMove } = useMoveWindow()
 
   useEffect(() => {
-    handleMove(moveRef as MutableRefObject<HTMLDivElement>)
+    handleMove(moveRef as MutableRefObject<HTMLDivElement>, 'config')
     navigate('/config/catalogs')
   }, [])
 
