@@ -1,10 +1,10 @@
 import { useStoreId } from '@renderer/store/useStoreId'
 import { useStoreSearch } from '@renderer/store/useStoreSearch'
-import { SelectType, useStoreSelect } from '@renderer/store/useStoreSelect'
+import { useStoreSelect } from '@renderer/store/useStoreSelect'
 import { useCallback, useEffect } from 'react'
 
-interface codeSelect extends Partial<SelectType> {
-  data: SelectType[]
+interface codeSelect extends Partial<ContentType> {
+  data: ContentType[]
 }
 
 export default (): codeSelect => {

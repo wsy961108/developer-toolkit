@@ -2,6 +2,7 @@ import Seacrh from '@renderer/components/Search'
 import Result from '@renderer/components/Result'
 import { MutableRefObject, useEffect, useRef } from 'react'
 import useIgnoreMouseEvents from '@renderer/hooks/useIgnoreMouseEvents'
+import { useLoaderData } from 'react-router-dom'
 
 function Home(): JSX.Element {
   const { setIgnoreMouseEvents } = useIgnoreMouseEvents()
@@ -13,6 +14,9 @@ function Home(): JSX.Element {
 
   window.api.hotKey('CommandOrControl+L')
   window.api.initTable()
+
+  const data = useLoaderData()
+  console.log(data, 'home')
 
   useEffect(() => {
     setIgnoreMouseEvents(

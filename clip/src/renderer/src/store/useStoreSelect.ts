@@ -1,13 +1,8 @@
 import { create } from 'zustand'
 
-export interface SelectType {
-  id: number
-  content: string
-}
-
 export interface StoreSelect {
-  data: SelectType[]
-  setData: (data: SelectType[]) => void
+  data: ContentType[]
+  setData: (data: ContentType[]) => void
 }
 
 export const useStoreSelect = create<StoreSelect>((set) => ({

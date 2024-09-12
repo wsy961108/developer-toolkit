@@ -8,7 +8,7 @@ export default function Result(): JSX.Element {
     <main className={styles.result}>
       {data.map((code) => (
         <div key={code.id} className={id === code.id ? styles.isActive : styles.item}>
-          {code.content}
+          {code.title}
         </div>
       ))}
     </main>

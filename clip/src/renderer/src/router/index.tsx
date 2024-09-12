@@ -1,5 +1,6 @@
 import { createHashRouter } from 'react-router-dom'
 import Home from '@renderer/layouts/Home'
+import homeLoader from '@renderer/layouts/Home/loader'
 import Config from '@renderer/layouts/Config'
 import Catalogs from '@renderer/layouts/Config/catalogs'
 import catalogsLoader from '@renderer/layouts/Config/catalogs/loader'
@@ -12,7 +13,7 @@ import contentLoader from '@renderer/layouts/Config/content/loader'
 import contentAction from '@renderer/layouts/Config/content/action'
 
 const router = createHashRouter([
-  { path: '/', element: <Home /> },
+  { path: '/', element: <Home />, loader: homeLoader },
   {
     path: '/config',
     element: <Config />,
