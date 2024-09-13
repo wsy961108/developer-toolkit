@@ -29,7 +29,11 @@ function Config(): JSX.Element {
   return (
     <div className={styles.container}>
       <div ref={moveRef} className={styles.title}>
-        代码片段工具
+        <div
+          className={`${styles.btn} ${styles.close}`}
+          onClick={() => window.api.closeWindow('config')}
+        />
+        <div className="mx-auto">代码片段工具</div>
       </div>
       <div className={styles.main}>
         <div className={styles.menu}>

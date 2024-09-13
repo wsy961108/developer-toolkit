@@ -29,10 +29,10 @@ export default (): codeSelect => {
         },
         Enter: async (): Promise<void> => {
           const content = data.find((d) => d.id === id)?.content
-          if (content) await navigator.clipboard.writeText(content)
           data.length && setData([])
           search && setSearch('')
-          window.api.closeWindow('search')
+          window.api.minimizeWindow('search')
+          content && window.api.writeClipboard(content)
         }
       }
       eventTypeFn[e.code]?.()

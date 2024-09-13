@@ -6,11 +6,11 @@ export const config = {
     options: {
       hash: '',
       frame: false,
-      initShow: true,
+      initShow: false,
       transparent: true,
       alwaysOnTop: true,
       width: 580,
-      openDevTools: true,
+      openDevTools: false,
       resizable: false
     }
   },
@@ -19,9 +19,9 @@ export const config = {
     options: {
       width: 1000,
       height: 350,
-      initShow: false,
+      initShow: true,
       frame: false,
-      openDevTools: false,
+      openDevTools: true,
       hash: '/#config'
     }
   }

@@ -11,6 +11,9 @@ declare global {
       sql: <T>(sql: string, type: SqlActionType, params?: Record<string, any>) => Promise<T>
       openWindow: (name: WindowNameType) => void
       closeWindow: (name: WindowNameType) => void
+      restoreWindow: (name: WindowNameType) => void
+      minimizeWindow: (name: WindowNameType) => void
+      writeClipboard: (content: string) => void
       selectDatabaseDirectory: () => Promise<string>
       setDatabaseDirectory: (path: string) => void
       initTable: () => void

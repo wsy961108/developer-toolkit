@@ -4,6 +4,9 @@ import { electronAPI } from '@electron-toolkit/preload'
 const api = {
   hotKey: (hotKey: string) => ipcRenderer.invoke('hotKey', hotKey),
   openWindow: (name: WindowNameType) => ipcRenderer.send('openWindow', name),
+  minimizeWindow: (name: WindowNameType) => ipcRenderer.send('minimizeWindow', name),
+  restoreWindow: (name: WindowNameType) => ipcRenderer.send('restoreWindow', name),
+  writeClipboard: (content: string) => ipcRenderer.send('writeClipboard', content),
   closeWindow: (name: WindowNameType) => ipcRenderer.send('closeWindow', name),
   selectDatabaseDirectory: () => ipcRenderer.invoke('selectDatabaseDirectory'),
   setDatabaseDirectory: (path: string) => ipcRenderer.send('setDatabaseDirectory', path),

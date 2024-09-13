@@ -14,7 +14,9 @@ function registerSearchShortCut(hotKey: string) {
   }
   const win = getByNameWindow('search')
   return globalShortcut.register(hotKey, () => {
-    win.isVisible() ? win.hide() : win.show()
+    if (!win.isVisible() && !win.isMinimized()) win.show()
+    else if (win.isMinimized()) win.restore()
+    else win.minimize()
   })
 }
 

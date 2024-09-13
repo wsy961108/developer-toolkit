@@ -3,6 +3,27 @@
 
   .title {
     @apply w-full flex justify-center items-center h-10 select-none;
+
+    .btn {
+      @apply w-3 h-3 rounded-full ml-4 relative overflow-hidden cursor-pointer;
+    }
+
+    .close {
+      @apply bg-[#FF5D5B] border border-[#CF544D];
+    }
+    .close::before,
+    .close::after {
+      content: '';
+      @apply absolute w-[1px] h-[70%] bg-[#460100] left-1/2 top-1/2;
+    }
+
+    .close::before {
+      @apply transform -translate-x-1/2 -translate-y-1/2 rotate-45;
+    }
+
+    .close::after {
+      @apply transform -translate-x-1/2 -translate-y-1/2 -rotate-45;
+    }
   }
 
   .main {
