@@ -1,6 +1,6 @@
 import styles from './index.module.scss'
 import EditableText from '@renderer/components/EditableText'
-import { Link, NavLink, Outlet, useFetcher, useLoaderData, useSubmit } from 'react-router-dom'
+import { NavLink, Outlet, useFetcher, useLoaderData, useSubmit } from 'react-router-dom'
 import ScrollContainer from '@renderer/components/ScrollContainer'
 
 function Listings(): JSX.Element {

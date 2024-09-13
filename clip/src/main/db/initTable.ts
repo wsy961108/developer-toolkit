@@ -1,5 +1,5 @@
 import { db } from './connect'
-import { findOne } from './command'
+// import { findOne } from './command'
 
 export function initTable() {
   db().exec(`
@@ -26,12 +26,12 @@ export function initTable() {
     content text not null
   );
 `)
-  // initData()
 }
-function initData() {
-  const isInit = findOne('select * from contents')
-  if (isInit) return
-  db().exec(`
-    INSERT INTO config (content) VALUES('{"shortCut":"CommandOrControl+L","databaseDirectory":""}');
-  `)
-}
+// initData()
+// function initData() {
+//   const isInit = findOne('select * from contents')
+//   if (isInit) return
+//   db().exec(`
+//     INSERT INTO config (content) VALUES('{"shortCut":"CommandOrControl+L","databaseDirectory":""}');
+//   `)
+// }

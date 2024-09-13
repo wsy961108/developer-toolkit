@@ -20,11 +20,7 @@ export default async ({ request, params }) => {
         title,
         id
       }
-      await window.api.sql(
-        `update contents set title=@title where id=@id`,
-        'update',
-        p
-      )
+      await window.api.sql(`update contents set title=@title where id=@id`, 'update', p)
     }
   }
 
