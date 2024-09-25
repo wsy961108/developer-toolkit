@@ -11,7 +11,8 @@ export const config = {
       alwaysOnTop: true,
       width: 580,
       openDevTools: false,
-      resizable: false
+      resizable: false,
+      skipTaskbar: true
     }
   },
   config: {

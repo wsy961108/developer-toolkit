@@ -2,6 +2,7 @@ import { app, ipcMain } from 'electron'
 import { electronApp, optimizer } from '@electron-toolkit/utils'
 import './window'
 import './ipc'
+import createTray from './window/tray'
 
 app.whenReady().then(() => {
   electronApp.setAppUserModelId('com.electron')
@@ -11,6 +12,10 @@ app.whenReady().then(() => {
   })
 
   ipcMain.on('ping', () => console.log('pong'))
+})
+
+app.on('ready', () => {
+  createTray()
 })
 
 app.on('window-all-closed', () => {

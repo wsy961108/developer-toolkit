@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: clip
+productName: 工具条
 directories:
   buildResources: build
 files:
@@ -14,7 +14,11 @@ asarUnpack:
 win:
   executableName: clip
 nsis:
-  artifactName: ${name}-${version}-setup.${ext}
+  oneClick: false 
+  allowElevation: true 
+  allowToChangeInstallationDirectory: true 
+  createStartMenuShortcut: true 
+  artifactName: ${name}-${version}.${ext}
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
