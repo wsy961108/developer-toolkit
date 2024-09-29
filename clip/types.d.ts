@@ -24,4 +24,4 @@ type ConfigDataType = {
   databaseDirectory: string
 }
 
-type WindowNameType = 'search' | 'config' | 'code'
+type WindowNameType = 'search' | 'config'

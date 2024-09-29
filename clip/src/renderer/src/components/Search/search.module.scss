@@ -1,12 +1,12 @@
 .search {
-  @apply w-full p-2.5 box-border select-none;
+  @apply w-full py-3.5 px-4 box-border select-none;
   .searchLayout {
-    @apply flex items-center justify-between h-10;
+    @apply flex items-center justify-between;
     .searchInput {
-      @apply px-2 flex-1 rounded-md outline-none bg-slate-400 h-full;
+      @apply flex-1 outline-none text-inferior-800 bg-transparent h-5 ml-2 text-xs;
     }
     .searchSetting {
-      @apply cursor-pointer ml-2;
+      @apply text-inferior-800;
     }
   }
 }

@@ -1,3 +1,4 @@
+import { Add, Delete } from '@icon-park/react'
 import styles from './index.module.scss'
 import EditableText from '@renderer/components/EditableText'
 import ScrollContainer from '@renderer/components/ScrollContainer'
@@ -32,8 +33,9 @@ function Catalogs(): JSX.Element {
             ))}
           </ScrollContainer>
         </div>
-        <div className={styles.add} onClick={addCatalog}>
-          +
+        <div className={styles.icon_container}>
+          <Add theme="outline" size="18" className={styles.add} onClick={addCatalog} />
+          <Delete theme="outline" size="18" className={styles.del} onClick={addCatalog} />
         </div>
       </div>
       <Outlet />

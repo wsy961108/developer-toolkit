@@ -1,0 +1,13 @@
+.menu {
+  @apply flex items-center h-7;
+  .menu_item {
+    @apply flex items-center h-full px-4 ml-2  rounded-[4px]  text-xs text-inferior opacity-70 hover:opacity-100 hover:bg-inferior-100;
+    &:nth-last-child(1) {
+      @apply ml-0;
+    }
+  }
+  .menu_item_active {
+    @extend .menu_item;
+    @apply opacity-100 text-inferior bg-inferior-100;
+  }
+}

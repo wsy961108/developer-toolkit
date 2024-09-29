@@ -9,7 +9,7 @@ export const config = {
       initShow: false,
       transparent: true,
       alwaysOnTop: true,
-      width: 580,
+      width: 480,
       openDevTools: false,
       resizable: false,
       skipTaskbar: true
@@ -20,9 +20,9 @@ export const config = {
     options: {
       width: 1000,
       height: 350,
-      initShow: false,
+      initShow: true,
       frame: false,
-      openDevTools: false,
+      openDevTools: true,
       hash: '/#config'
     }
   }

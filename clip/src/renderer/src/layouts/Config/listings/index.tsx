@@ -2,6 +2,7 @@ import styles from './index.module.scss'
 import EditableText from '@renderer/components/EditableText'
 import { NavLink, Outlet, useFetcher, useLoaderData, useSubmit } from 'react-router-dom'
 import ScrollContainer from '@renderer/components/ScrollContainer'
+import { Add, Delete } from '@icon-park/react'
 
 function Listings(): JSX.Element {
   const data = useLoaderData() as ContentType[]
@@ -34,8 +35,9 @@ function Listings(): JSX.Element {
             ))}
           </ScrollContainer>
         </div>
-        <div className={styles.add} onClick={addListting}>
-          +
+        <div className={styles.icon_container}>
+          <Add theme="outline" size="18" className={styles.add} onClick={addListting} />
+          <Delete theme="outline" size="18" className={styles.del} onClick={addListting} />
         </div>
       </div>
       <Outlet />

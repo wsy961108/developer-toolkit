@@ -4,6 +4,12 @@ import './window'
 import './ipc'
 import createTray from './window/tray'
 
+const gotTheLock = app.requestSingleInstanceLock()
+
+if (!gotTheLock) {
+  app.quit()
+}
+
 app.whenReady().then(() => {
   electronApp.setAppUserModelId('com.electron')
 

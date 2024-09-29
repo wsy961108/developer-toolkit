@@ -27,7 +27,7 @@ export default function EditableText(props: Props): JSX.Element {
     )
   } else {
     return (
-      <div className="w-full h-6 flex" key={props.data.id}>
+      <div className="w-full flex items-center" key={props.data.id}>
         <div
           className="w-full h-full truncate bg-transparent"
           onDoubleClick={() => handleIsUpdataState(true)}

@@ -3,7 +3,6 @@ import Result from '@renderer/components/Result'
 import { MutableRefObject, useEffect, useRef } from 'react'
 import useIgnoreMouseEvents from '@renderer/hooks/useIgnoreMouseEvents'
 import { useLoaderData } from 'react-router-dom'
-
 function Home(): JSX.Element {
   const { setIgnoreMouseEvents } = useIgnoreMouseEvents()
   const openEventEl = useRef<HTMLDivElement>(null)
@@ -11,7 +10,6 @@ function Home(): JSX.Element {
 
   // const config = useStore((s) => s.config)
   // window.api.setDatabaseDirectory(config.databaseDirectory)
-
   window.api.hotKey('CommandOrControl+L')
   window.api.initTable()
 
@@ -27,7 +25,7 @@ function Home(): JSX.Element {
 
   return (
     <>
-      <main ref={openEventEl} className="relative z-10 overflow-hidden rounded-lg bg-slate-300">
+      <main ref={openEventEl} className="relative z-10 overflow-hidden rounded-lg bg-primary">
         <Seacrh />
         <Result />
       </main>

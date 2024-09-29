@@ -1,23 +1,27 @@
 .container {
-  @apply w-52 bg-gray-200 rounded-lg p-2 flex flex-col;
+  @apply flex flex-col pt-2 px-1 w-52 bg-inferior-100 rounded-[4px];
 
   .scroll {
     @apply flex-1;
 
     .item {
-      @apply flex justify-between items-center h-9 cursor-pointer rounded-lg mb-1 bg-gray-200 hover:bg-gray-100;
+      @apply flex items-center cursor-pointer rounded-sm mb-1 text-inferior text-xs hover:opacity-100 hover:bg-primary;
 
       .link {
-        @apply flex-1 p-1.5 truncate rounded-lg;
+        @apply flex-1 px-1.5 py-2 truncate rounded-sm opacity-70;
       }
       .active {
         @extend .link;
-        @apply bg-blue-700;
+        @apply opacity-100 text-inferior bg-primary;
       }
     }
   }
 
-  .add {
-    @apply h-4 flex items-center justify-center bottom-0 left-0 right-0 text-center cursor-pointer border-t-[1px] border-solid border-white;
+  .icon_container {
+    @apply flex items-center justify-center gap-3 h-9 bottom-0 left-0 right-0 border-t-[1px] border-solid border-primary;
+    .add,
+    .del {
+      @apply cursor-pointer text-inferior opacity-70;
+    }
   }
 }
