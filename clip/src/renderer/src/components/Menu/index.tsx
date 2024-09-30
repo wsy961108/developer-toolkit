@@ -14,10 +14,7 @@ function Menu(): JSX.Element {
         <NavLink
           to={i.route}
           key={i.route}
-          className={({ isActive }) => {
-            console.log(isActive)
-            return isActive ? styles.menu_item_active : styles.menu_item
-          }}
+          className={({ isActive }) => (isActive ? styles.menu_item_active : styles.menu_item)}
         >
           {i.label}
         </NavLink>

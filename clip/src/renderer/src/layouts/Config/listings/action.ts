@@ -12,6 +12,11 @@ export default async ({ request, params }) => {
       )
       return redirect(`content/${addId}`)
     }
+    case 'del': {
+      const lid = data.get('lid')
+      await window.api.sql(`DELETE FROM contents where id=@lid`, 'del', { lid })
+      break
+    }
 
     default: {
       const title = data.get('title')

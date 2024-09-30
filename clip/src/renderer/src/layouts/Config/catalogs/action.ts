@@ -12,6 +12,12 @@ export default async ({ request }) => {
       )
       return redirect(`listings/${addId}`)
     }
+    case 'del': {
+      const cid = data.get('cid')
+      await window.api.sql(`DELETE FROM categories where id=@cid`, 'del', { cid })
+      await window.api.sql(`DELETE FROM contents where category_id=@cid`, 'del', { cid })
+      break
+    }
 
     default: {
       const name = data.get('name')
